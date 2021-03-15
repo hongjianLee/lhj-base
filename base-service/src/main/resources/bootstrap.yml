@@ -1,6 +1,6 @@
 spring:
   application:
-    name: base-service
+    name: baseService
   profiles:
     active: dev
 
@@ -25,7 +25,7 @@ spring:
         # enableRemoteSyncConfig: false
         prefix: ${spring.application.name}
         file-extension: yml
-        shared-dataids: base.yml
+        shared-dataids: base.yml,common.yml
         refreshable-dataids: base.yml
         namespace: 9c0ba88b-9d15-4ed9-903e-9461b2dc5234
         group: DEFAULT_GROUP
