@@ -3,6 +3,7 @@ package com.lhj.baseservice.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
@@ -57,7 +58,7 @@ public class MyAspect {
     }
 
     @Around("controllerLog()")
-    public void logAroundController(JoinPoint joinPoint) {
+    public Object logAroundController(ProceedingJoinPoint joinPoint) throws Throwable {
         log.error("------->Around");
 
         //这个RequestContextHolder是Springmvc提供来获得请求的东西
@@ -72,5 +73,6 @@ public class MyAspect {
 
         //下面这个getSignature().getDeclaringTypeName()是获取包+类名的   然后后面的joinPoint.getSignature.getName()获取了方法名
         log.info("################CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        return joinPoint.proceed();
     }
 }

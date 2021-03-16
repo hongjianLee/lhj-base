@@ -1,4 +1,4 @@
-package com.lhj.baseservice.service.es;
+package com.lhj.baseservice.module.es.serviceImpl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
